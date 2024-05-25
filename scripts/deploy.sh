@@ -1,5 +1,5 @@
 #!/bin/bash
-BUILD_PATH=$(ls /home/ubuntu/app/nowsopt-0.0.1-SNAPSHOT.jar)
+BUILD_PATH=$(ls /home/ubuntu/app/cicd-0.0.1-SNAPSHOT.jar)
 JAR_NAME=$(basename $BUILD_PATH)
 echo "> build 파일명: $JAR_NAME"
 
@@ -28,7 +28,7 @@ else
 fi
 
 echo "> application.jar 교체"
-GREEN_APPLICATION=$GREEN_PROFILE-nowsopt.jar
+GREEN_APPLICATION=$GREEN_PROFILE-cicd.jar
 GREEN_APPLICATION_PATH=$DEPLOY_PATH$GREEN_APPLICATION
 
 ln -Tfs $DEPLOY_PATH$JAR_NAME $GREEN_APPLICATION_PATH
@@ -74,7 +74,7 @@ do
 done
 
 echo "> $BLUE_PROFILE 에서 구동중인 애플리케이션 pid 확인"
-BLUE_PID=$(pgrep -f $BLUE_PROFILE-nowsopt.jar)
+BLUE_PID=$(pgrep -f $BLUE_PROFILE-cicd.jar)
 
 if [ -z $BLUE_PID ]
 then
